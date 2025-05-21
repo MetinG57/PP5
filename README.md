@@ -188,7 +188,41 @@ Receiving objects: 100% (6/6), done.
 **Your Commands & Output**
 
 ```bash
-# Paste here the remote‐adding & push outputs
+# remote‐adding
+git remote add github git@github.com:MetinG57/myproject-gh.git
+git remote add gitlab git@gitlab.thga.de:mustafa.gueney/myproject-gl.git
+git remote -v
+
+# Master-Branch pushen
+git push github master
+git push gitlab master
+```
+```bash
+# push outputs
+github  git@github.com:MetinG57/myproject-gh.git (fetch)
+github  git@github.com:MetinG57/myproject-gh.git (push)
+gitlab  git@gitlab.thga.de:mustafa.gueney/myproject-gl.git (fetch)
+gitlab  git@gitlab.thga.de:mustafa.gueney/myproject-gl.git (push)
+origin-ssh   user56@128.140.85.215:~/repos/myproject.git (fetch)
+origin-ssh   user56@128.140.85.215:~/repos/myproject.git (push)
+
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 591 bytes | 24.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:MetinG57/myproject-gh.git
+ * [new branch]      master -> master
+
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 591 bytes | 29.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To gitlab.thga.de:mustafa.gueney/myproject-gl.git
+ * [new branch]      master -> master
 ```
 
 ---
