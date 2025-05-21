@@ -125,7 +125,8 @@ git push origin-ssh master
 cd ~
 git clone user56@128.140.85.215:~/repos/myproject.git
 ```
-```Output:
+```
+Output:
 The authenticity of host '128.140.85.215 (128.140.85.215)' can't be established.
 ED25519 key fingerprint is SHA256:RxMwhpDxDq2aHcMAnAUsHJmeWgVVmCkXQSJCkB8zu44.
 This key is not known by any other names.
