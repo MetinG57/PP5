@@ -46,6 +46,45 @@ In this exercise you will:
 # Paste here the sequence of git commands you ran
 # and the relevant terminal output (e.g., branch listing, merge messages)
 ```
+### sequence of git commands
+```bash
+mkdir PP5
+cd PP5
+git init
+echo "Übung PP5: Lokales Git-Repository" > README.md
+git add README.md
+git commit -m "Initialer Commit für PP5"
+git checkout -b feature-1
+echo "Dies ist eine neue Funktion für feature-1 in Übung PP5" > feature.txt
+git add feature.txt
+git commit -m "Hinzufügen von feature.txt im Branch feature-1"
+git checkout main
+git checkout master
+git merge feature-1
+git branch
+```
+### Terminal-Output:
+
+```bash
+Initialized empty Git repository in C:/Users/metin/PP5/.git/
+[master (root-commit) 420e99f] Initialer Commit für PP5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+Switched to a new branch 'feature-1'
+[feature-1 37a804b] Hinzufügen von feature.txt im Branch feature-1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+error: pathspec 'main' did not match any file(s) known to git
+Switched to branch 'master'
+Updating 420e99f..37a804b
+Fast-forward
+ feature.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+  feature-1
+* master
+```
+
 
 ---
 
@@ -69,6 +108,65 @@ In this exercise you will:
 ```bash
 # Paste here the push & clone commands and outputs
 ```
+### Bare Repository auf dem SSH Server erstellen
+```bash
+ssh user56@128.140.85.215
+mkdir -p ~/repos/myproject.git && cd ~/repos/myproject.git && git init --bare
+exit
+
+# Remote hinzufügen
+git remote add origin-ssh user56@128.140.85.215:~/repos/myproject.git
+git remote -v
+
+# Master-Branch pushen
+git push origin-ssh master
+
+# Repository klonen
+cd ~
+git clone user56@128.140.85.215:~/repos/myproject.git
+```
+```Output:
+The authenticity of host '128.140.85.215 (128.140.85.215)' can't be established.
+ED25519 key fingerprint is SHA256:RxMwhpDxDq2aHcMAnAUsHJmeWgVVmCkXQSJCkB8zu44.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '128.140.85.215' (ED25519) to the list of known hosts.
+user56@128.140.85.215's password:
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/user56/repos/myproject.git/
+logout
+Connection to 128.140.85.215 closed.
+
+origin-ssh   user56@128.140.85.215:~/repos/myproject.git (fetch)
+origin-ssh   user56@128.140.85.215:~/repos/myproject.git (push)
+
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 591 bytes | 28.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To 128.140.85.215:~/repos/myproject.git
+ * [new branch]      master -> master
+
+Cloning into 'myproject'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+```
+
+
 
 ---
 
